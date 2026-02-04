@@ -1,5 +1,8 @@
 const narutoAPI = document.getElementById('narutoAPI');
+let nAPI = "https://dattebayo-api.onrender.com/characters";
 
+
+// Requirement fetch API & Get 
 fetch("https://dattebayo-api.onrender.com/characters")
 .then(response => response.json())
 .then (data => {
@@ -27,3 +30,17 @@ function displayCharacter(characters) {
 
     });
 }
+
+
+
+
+
+searchInput.addEventListner("input", (e) => {
+    const query = e.target.value.toLowerCase();
+    const filtered = allCharacter.filer (char => 
+        char.name.toLowercase().includes(query)
+    );
+    renderCharacters(filtered);
+});
+
+
